@@ -7,26 +7,28 @@
 #include "rf.h"
 #include "my.h"
 
-void robot()
-{
-    FILE *file;
-    char *text = "Hello bambino\n";
-
-    file = fopen("./some-text.yolo", "w");
-    fprintf(file, "%s", text);
-    fclose(file);
-    return;
-}
-
 int error(int argc, char **argv)
 {
-    if (argc != 2) {
+    FILE *file;
+    char *line = NULL;
+    size_t len = 0;
+    ssize_t read;
+
+    if (argc != 2)
         return 84;
-    }
+    file = fopen(argv[1], "r");
+    if (file == NULL)
+        return 84;
+    read = getline(&line, &len, file);
+    if (read == -1)
+        return 84;
+    my_printf("line : %s\n", line);
+    free(line);
+    fclose(file);
     return 0;
 }
 
-int h(int argc, char **argv)
+int tiret_h(int argc, char **argv)
 {
     if (argc == 2 && my_strcmp(argv[1], "-h") == 0) {
         my_printf("USAGE\n");
