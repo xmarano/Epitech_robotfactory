@@ -22,7 +22,6 @@ int error(int argc, char **argv)
     read = getline(&line, &len, file);
     if (read == -1)
         return 84;
-    my_printf("line : %s\n", line);
     free(line);
     fclose(file);
     return 0;
@@ -43,7 +42,7 @@ int tiret_h(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-    if (h(argc, argv) == 1)
+    if (tiret_h(argc, argv) == 1)
         return 0;
     if (error(argc, argv) == 84)
         return 84;
