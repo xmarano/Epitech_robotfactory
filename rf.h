@@ -10,5 +10,6 @@
 
 typedef struct S {
 } S_t;
-
+int error(int argc, char **argv);
+int check_header(int argc, char **argv);
 #endif
