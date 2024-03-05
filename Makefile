@@ -21,6 +21,7 @@ SRCLIB	=	lib/my_atoi.c 		\
 
 SRCNAME	=	main.c				\
 			error_handling.c	\
+			file_to_char.c		\
 
 LIB 	=	libmy.a
 

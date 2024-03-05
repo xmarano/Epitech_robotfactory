@@ -5,6 +5,7 @@
 ** main.c
 */
 #include "rf.h"
+#include "op.h"
 #include "my.h"
 
 int tiret_h(int argc, char **argv)
@@ -23,10 +24,12 @@ int tiret_h(int argc, char **argv)
 int main(int argc, char **argv)
 {
     S_t s;
+    header_t h;
 
     if (tiret_h(argc, argv) == 1)
         return 0;
     if (error(argc, argv) == 84 || check_header(argc, argv) == 84)
         return 84;
+    file_to_char(argc, argv, &h);
     return 0;
 }
