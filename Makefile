@@ -35,7 +35,6 @@ NAME	=	asm
 
 $(NAME) : 	$(LIB) $(OBJNAME)
 			gcc -o $(NAME) $(OBJNAME) -lmy -L./ -g3
-			rm -f $(OBJLIB) $(OBJNAME)
 
 $(LIB) 	: 	$(OBJLIB)
 			ar rc libmy.a lib/*.o
@@ -43,9 +42,9 @@ $(LIB) 	: 	$(OBJLIB)
 all		:	$(LIB) $(NAME)
 
 clean	:
-			rm $(LIB)
+			rm -f $(OBJLIB) $(OBJNAME) libmy.a
 
-fclean	:
-			rm -f $(NAME) $(LIB)
+fclean	:	clean
+			rm -f $(NAME)
 
 re		: 	fclean all
