@@ -6,6 +6,7 @@
 ##
 
 SRCLIB	=	lib/my_atoi.c 		\
+			lib/my_intlen.c 	\
 			lib/my_printf.c		\
 			lib/my_put_nbr_recursive.c	\
 			lib/my_put_nbr.c 	\
@@ -21,7 +22,8 @@ SRCLIB	=	lib/my_atoi.c 		\
 
 SRCNAME	=	main.c				\
 			error_handling.c	\
-			file_to_char.c		\
+			file_to_header.c	\
+			core_file.c			\
 
 LIB 	=	libmy.a
 
@@ -33,6 +35,7 @@ NAME	=	asm
 
 $(NAME) : 	$(LIB) $(OBJNAME)
 			gcc -o $(NAME) $(OBJNAME) -lmy -L./ -g3
+			rm -f $(OBJLIB) $(OBJNAME)
 
 $(LIB) 	: 	$(OBJLIB)
 			ar rc libmy.a lib/*.o
@@ -40,9 +43,9 @@ $(LIB) 	: 	$(OBJLIB)
 all		:	$(LIB) $(NAME)
 
 clean	:
-			rm -f $(OBJLIB) $(OBJNAME) libmy.a
+			rm $(LIB)
 
-fclean	: 	clean
-			rm -f $(NAME)
+fclean	:
+			rm -f $(NAME) $(LIB)
 
 re		: 	fclean all
