@@ -30,6 +30,7 @@ int main(int argc, char **argv)
         return 0;
     if (error(argc, argv) == 84 || check_header(argc, argv) == 84)
         return 84;
-    file_to_char(argc, argv, &h);
+    file_to_header(argc, argv, &h);
+    create_core_file(argc, argv, &h, &s);
     return 0;
 }

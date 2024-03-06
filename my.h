@@ -10,8 +10,10 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <signal.h>
+#include <fcntl.h>
 #ifndef MY_H
     #define MY_H
+int my_intlen(int a);
 int my_put_nbr(int nb);
 int my_atoi(char *str);
 char my_putchar(char c);
