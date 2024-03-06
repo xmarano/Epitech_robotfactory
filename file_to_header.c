@@ -59,7 +59,6 @@ int file_to_header(int argc, char **argv, header_t *h)
     name_in_header(argc, argv, str, h);
     read = getline(&str, &len, file);
     comment_in_header(argc, argv, str, h);
-    my_printf("(%d)(%s)(%s)\n", h->magic, h->prog_name, h->comment);
     free(str);
     fclose(file);
     return 0;
