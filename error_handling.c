@@ -12,6 +12,10 @@ static int check_header_name(int argc, char **argv, char *str, int *verif)
     int nb = 0;
     char *name = ".name ";
 
+    for (int i = 0; str[i] != '\n'; i++)
+        nb = i;
+    if (str[nb] != '"')
+        return 84;
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == '\t' || *verif == 1)
             continue;
@@ -30,6 +34,10 @@ static int check_header_comment(int argc, char **argv, char *str, int *verif)
     int nb = 0;
     char *comment = ".comment ";
 
+    for (int i = 0; str[i] != '\n'; i++)
+        nb = i;
+    if (str[nb] != '"')
+        return 84;
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == '\t' || *verif == 0)
             continue;

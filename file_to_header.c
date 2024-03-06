@@ -46,7 +46,12 @@ static void comment_in_header(int argc, char **argv, char *str, header_t *h)
         h->comment[i] = '\0';
 }
 
-int file_to_header(int argc, char **argv, header_t *h)
+static void size_in_header(char *str, header_t *h, S_t *s)
+{
+    h->prog_size = 0;
+}
+
+int file_to_header(int argc, char **argv, header_t *h, S_t *s)
 {
     FILE *file;
     char *str = NULL;
@@ -59,6 +64,7 @@ int file_to_header(int argc, char **argv, header_t *h)
     name_in_header(argc, argv, str, h);
     read = getline(&str, &len, file);
     comment_in_header(argc, argv, str, h);
+    size_in_header(str, h, s);
     free(str);
     fclose(file);
     return 0;

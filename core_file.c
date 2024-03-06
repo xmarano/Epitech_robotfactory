@@ -14,7 +14,6 @@ void static write_header(header_t *h, S_t *s)
 
     fwrite(&h->magic, sizeof(int), 1, file);
     fwrite(h->prog_name, sizeof(char), PROG_NAME_LENGTH, file);
-    h->prog_size = 0;
     fwrite(&h->prog_size, sizeof(int), 1, file);
     fwrite(h->comment, sizeof(char), COMMENT_LENGTH, file);
     fclose(file);
