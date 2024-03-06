@@ -51,7 +51,7 @@ static int check_header_comment(int argc, char **argv, char *str, int *verif)
     return 0;
 }
 
-int check_header(int argc, char **argv)
+int error_header(int argc, char **argv)
 {
     FILE *file;
     char *str = NULL;
@@ -71,7 +71,7 @@ int check_header(int argc, char **argv)
     return 0;
 }
 
-int error(int argc, char **argv)
+int error_file(int argc, char **argv)
 {
     FILE *file;
     char *line = NULL;

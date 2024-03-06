@@ -28,7 +28,11 @@ int main(int argc, char **argv)
 
     if (tiret_h(argc, argv) == 1)
         return 0;
-    if (error(argc, argv) == 84 || check_header(argc, argv) == 84)
+    if (error_file(argc, argv) == 84)
+        return 84;
+    if (error_header(argc, argv) == 84)
+        return 84;
+    if (error_body(argc, argv) == 84)
         return 84;
     file_to_header(argc, argv, &h, &s);
     create_core_file(argc, argv, &h, &s);
