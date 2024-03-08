@@ -32,6 +32,8 @@ int all_parameters(S_t *s)
         return add_function(s);
     if (my_strcmp(s->arr[0], "fork") == 0)
         return fork_function(s);
+    if (my_strcmp(s->arr[0], "zjmp") == 0)
+        return fork_function(s);
     return 0;
 }
 
