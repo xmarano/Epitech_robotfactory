@@ -34,8 +34,10 @@ static int check_header_comment(int argc, char **argv, char *str, int *verif)
     int nb = 0;
     char *comment = ".comment ";
 
-    for (int i = 0; str[i] != '\n'; i++)
+    for (int i = 0; str[i] != '\0'; i++)
         nb = i;
+    if (str[nb - 1] == '"')
+        nb = nb - 1;
     if (str[nb] != '"')
         return 84;
     for (int i = 0; str[i] != '\0'; i++) {
@@ -64,6 +66,7 @@ int error_header(int argc, char **argv)
     if (check_header_name(argc, argv, str, &verif) == 84)
         return 84;
     read = getline(&str, &len, file);
+    my_printf("test2\n");
     if (check_header_comment(argc, argv, str, &verif) == 84)
         return 84;
     free(str);

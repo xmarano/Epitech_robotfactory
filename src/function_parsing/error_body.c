@@ -49,10 +49,8 @@ int error_body(int argc, char **argv, S_t *s)
     ssize_t read;
 
     file = fopen(argv[1], "r");
-    for (int i = 0; i != 3; i++)
+    for (int i = 0; i != 2; i++)
         read = getline(&str, &len, file);
-    if (my_strcmp(str, "\n") != 0)
-        return 84;
     while (read != -1) {
         read = getline(&str, &len, file);
         s->arr = str_to_word_array(str);
