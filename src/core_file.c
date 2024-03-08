@@ -22,8 +22,11 @@ void static write_header(header_t *h, S_t *s)
 void static name_of_file(char **argv, header_t *h, S_t *s)
 {
     s->file_name = malloc(my_strlen(h->prog_name) + 4 * sizeof(char));
-    for (int i = 0; argv[1][i] != '.'; i++)
-        s->file_name[i] = argv[1][i];
+    s->file_name = my_strcat(s->file_name, h->prog_name);
+    for (int i = 0; s->file_name[i] != '\0'; i++) {
+        if (s->file_name[i] < 97)
+            s->file_name[i] = s->file_name[i] + 32;
+    }
     s->file_name = my_strcat(s->file_name, ".cor");
 }
 
