@@ -11,10 +11,12 @@
 
 typedef struct S {
     char *file_name;
+    char **arr;
 } S_t;
+int sti_function(S_t *s);
 int error_file(int argc, char **argv);
-int error_body(int argc, char **argv);
 int error_header(int argc, char **argv);
+int error_body(int argc, char **argv, S_t *s);
 int file_to_header(int argc, char **argv, header_t *h, S_t *s);
 void create_core_file(int argc, char **argv, header_t *h, S_t *s);
 #endif

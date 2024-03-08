@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2024
 ** B-CPE-200-MAR-2-1-robotfactory-arnaud.jouan
 ** File description:
-** file_to_char.c
+** file_to_header.c
 */
 #include "rf.h"
 #include "op.h"

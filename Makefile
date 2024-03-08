@@ -23,6 +23,7 @@ SRCLIB	=	lib/my_atoi.c 		\
 SRCNAME	=	main.c				\
 			error_handling.c	\
 			error_body.c		\
+			sti_function.c			\
 			file_to_header.c	\
 			core_file.c			\
 
