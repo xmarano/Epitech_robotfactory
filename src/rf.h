@@ -14,6 +14,7 @@ typedef struct S {
     char **arr;
 } S_t;
 int sti_function(S_t *s);
+int add_function(S_t *s);
 int error_file(int argc, char **argv);
 int error_header(int argc, char **argv);
 int error_body(int argc, char **argv, S_t *s);

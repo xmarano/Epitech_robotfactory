@@ -20,12 +20,13 @@ SRCLIB	=	lib/my_atoi.c 		\
 			lib/my_strncpy.c 	\
 			lib/str_to_word_array.c 	\
 
-SRCNAME	=	main.c				\
-			error_handling.c	\
-			error_body.c		\
-			sti_function.c			\
-			file_to_header.c	\
-			core_file.c			\
+SRCNAME	=	src/main.c				\
+			src/error_handling.c	\
+			src/error_body.c		\
+			src/sti_function.c		\
+			src/add_function.c		\
+			src/file_to_header.c	\
+			src/core_file.c			\
 
 LIB 	=	libmy.a
 

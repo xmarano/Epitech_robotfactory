@@ -13,6 +13,8 @@ int all_parameters(S_t *s)
         return 0;
     if (my_strcmp(s->arr[0], "sti") == 0)
         return sti_function(s);
+    if (my_strcmp(s->arr[0], "add") == 0)
+        return add_function(s);
     return 0;
 }
 

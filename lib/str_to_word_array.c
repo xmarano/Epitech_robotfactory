@@ -4,7 +4,7 @@
 ** File description:
 ** Infos
 */
-#include "../my.h"
+#include "../src/my.h"
 
 int is_alphanum2(char c)
 {

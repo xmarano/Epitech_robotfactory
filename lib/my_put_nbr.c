@@ -4,7 +4,7 @@
 ** File description:
 ** Infos
 */
-#include "../my.h"
+#include "../src/my.h"
 #include <unistd.h>
 
 int my_put_nbr(int nb)
