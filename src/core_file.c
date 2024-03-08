@@ -8,10 +8,14 @@
 #include "op.h"
 #include "my.h"
 
-void static write_header(header_t *h, S_t *s)
+void static write_header(header_t *h, S_t *s, char **argv)
 {
-    FILE *file = fopen(s->file_name, "wb");
+    FILE *file;
 
+    if (argv[2] != NULL)
+        file = fopen(argv[2], "wb");
+    else if (argv[2] == NULL)
+        file = fopen(s->file_name, "wb");
     fwrite(h, sizeof(header_t), 1, file);
     fclose(file);
 }
@@ -40,6 +44,6 @@ void static name_of_file(char **argv, header_t *h, S_t *s)
 void create_core_file(int argc, char **argv, header_t *h, S_t *s)
 {
     name_of_file(argv, h, s);
-    write_header(h, s);
+    write_header(h, s, argv);
     free(s->file_name);
 }

@@ -80,7 +80,7 @@ int error_file(int argc, char **argv)
     size_t len = 0;
     ssize_t read;
 
-    if (argc != 2)
+    if (argc > 3 || argc == 1)
         return 84;
     file = fopen(argv[1], "r");
     if (file == NULL)
