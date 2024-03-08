@@ -7,6 +7,21 @@
 #include "rf.h"
 #include "my.h"
 
+static int fork_function(S_t *s)
+{
+    for (int i = 0; s->arr[i] != NULL; i++) {
+        if (s->arr[i + 1] == NULL && i != 1)
+            return 84;
+    }
+    if (s->arr[1][0] != '%' || s->arr[1][1] != ':')
+        return 84;
+    for (int i = 2; s->arr[1][i] != '\0'; i++) {
+        if (s->arr[1][i] < 'a' || s->arr[1][i] > 'z')
+            return 84;
+    }
+    return 0;
+}
+
 int all_parameters(S_t *s)
 {
     if (s->arr[0] == NULL)
@@ -15,6 +30,8 @@ int all_parameters(S_t *s)
         return sti_function(s);
     if (my_strcmp(s->arr[0], "add") == 0)
         return add_function(s);
+    if (my_strcmp(s->arr[0], "fork") == 0)
+        return fork_function(s);
     return 0;
 }
 
