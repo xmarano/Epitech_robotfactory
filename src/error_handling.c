@@ -66,7 +66,6 @@ int error_header(int argc, char **argv)
     if (check_header_name(argc, argv, str, &verif) == 84)
         return 84;
     read = getline(&str, &len, file);
-    my_printf("test2\n");
     if (check_header_comment(argc, argv, str, &verif) == 84)
         return 84;
     free(str);
