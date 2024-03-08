@@ -24,7 +24,7 @@ int tiret_h(int argc, char **argv)
 int main(int argc, char **argv)
 {
     S_t s;
-    header_t h;
+    header_t *h = malloc(sizeof(header_t));
 
     if (tiret_h(argc, argv) == 1)
         return 0;
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
         return 84;
     if (error_body(argc, argv, &s) == 84)
         return 84;
-    file_to_header(argc, argv, &h, &s);
-    create_core_file(argc, argv, &h, &s);
+    file_to_header(argc, argv, h, &s);
+    create_core_file(argc, argv, h, &s);
     return 0;
 }

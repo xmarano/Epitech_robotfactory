@@ -22,7 +22,6 @@ static void name_in_header(int argc, char **argv, char *str, header_t *h)
         h->prog_name[nb3] = str[nb];
         nb3++;
     }
-    h->prog_name[nb3] = '\0';
     for (int i = my_strlen(h->prog_name); i < PROG_NAME_LENGTH; i++)
         h->prog_name[i] = '\0';
 }
@@ -46,15 +45,16 @@ static void comment_in_header(int argc, char **argv, char *str, header_t *h)
         h->comment[i] = '\0';
 }
 
-static void size_in_header(char *str, header_t *h, S_t *s)
-{
-    h->prog_size = 0;
-}
-
 static int magic_in_header(int nb)
 {
     return ((nb >> 24) & 0xFF) | ((nb >> 8) & 0xFF00)
     | ((nb << 8) & 0xFF0000) | ((nb << 24) & 0xFF000000);
+}
+
+static void size_in_header(char *str, header_t *h, S_t *s)
+{
+    h->prog_size = 0;
+    h->prog_size = magic_in_header(h->prog_size);
 }
 
 int file_to_header(int argc, char **argv, header_t *h, S_t *s)
