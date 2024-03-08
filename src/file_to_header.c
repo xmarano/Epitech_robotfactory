@@ -51,6 +51,12 @@ static void size_in_header(char *str, header_t *h, S_t *s)
     h->prog_size = 0;
 }
 
+static int magic_in_header(int nb)
+{
+    return ((nb >> 24) & 0xFF) | ((nb >> 8) & 0xFF00)
+    | ((nb << 8) & 0xFF0000) | ((nb << 24) & 0xFF000000);
+}
+
 int file_to_header(int argc, char **argv, header_t *h, S_t *s)
 {
     FILE *file;
@@ -58,7 +64,7 @@ int file_to_header(int argc, char **argv, header_t *h, S_t *s)
     size_t len = 0;
     ssize_t read;
 
-    h->magic = 4085508608;
+    h->magic = magic_in_header(COREWAR_EXEC_MAGIC);
     file = fopen(argv[1], "r");
     read = getline(&str, &len, file);
     name_in_header(argc, argv, str, h);
