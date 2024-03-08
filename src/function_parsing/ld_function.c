@@ -4,8 +4,8 @@
 ** File description:
 ** ld_function.c
 */
-#include "rf.h"
-#include "my.h"
+#include "../rf.h"
+#include "../my.h"
 
 static int ld_param1(S_t *s)
 {

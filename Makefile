@@ -22,10 +22,10 @@ SRCLIB	=	lib/my_atoi.c 		\
 
 SRCNAME	=	src/main.c				\
 			src/error_handling.c	\
-			src/error_body.c		\
-			src/sti_function.c		\
-			src/add_function.c		\
-			src/ld_function.c		\
+			src/function_parsing/error_body.c	\
+			src/function_parsing/sti_function.c	\
+			src/function_parsing/add_function.c	\
+			src/function_parsing/ld_function.c	\
 			src/file_to_header.c	\
 			src/core_file.c			\
 

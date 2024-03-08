@@ -4,8 +4,8 @@
 ** File description:
 ** error_body.c
 */
-#include "rf.h"
-#include "my.h"
+#include "../rf.h"
+#include "../my.h"
 
 static int fork_function(S_t *s)
 {
