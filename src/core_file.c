@@ -13,10 +13,8 @@ void static write_header(header_t *h, S_t *s, char **argv)
     FILE *file;
 
     if (argv[2] != NULL) {
-        my_printf("1 - (%s)\n", argv[2]);
         file = fopen(argv[2], "wb");
-    } else if (argv[2] == NULL) {
-        my_printf("2 - (%s)\n", s->file_name);
+    } else {
         file = fopen(s->file_name, "wb");
     }
     fwrite(h, sizeof(header_t), 1, file);
