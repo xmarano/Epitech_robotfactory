@@ -19,17 +19,16 @@ void static write_header(header_t *h, S_t *s)
 void static name_of_file(char **argv, header_t *h, S_t *s)
 {
     int i = 0;
+    int nb = 0;
 
-    if (argv[1][0] == '.' && argv[1][1] == '/')
-        i = 2;
-    if (i == 2) {
-        s->file_name = malloc(my_strlen(argv[1]) * sizeof(char));
-        for (; argv[1][i] != '.'; i++)
-            s->file_name[i - 2] = argv[1][i];
-    } else {
-        s->file_name = malloc(my_strlen(argv[1]) + 2 * sizeof(char));
-        for (; argv[1][i] != '.'; i++)
-            s->file_name[i] = argv[1][i];
+    for (int i = 0; argv[1][i] != '\0'; i++) {
+        if (argv[1][i] == '/')
+            nb = i + 1;
+    }
+    s->file_name = malloc(nb + 4 * sizeof(char));
+    for (; argv[1][nb] != '.'; nb++) {
+        s->file_name[i] = argv[1][nb];
+        i++;
     }
     for (int i = 0; s->file_name[i] != '\0'; i++) {
         if (s->file_name[i] >= 65 && s->file_name[i] <= 90)
