@@ -15,6 +15,8 @@ static int fork_function(S_t *s)
     }
     if (s->arr[1][0] != '%' || s->arr[1][1] != ':')
         return 84;
+    if (s->arr[1][2] == '\0')
+        return 84;
     for (int i = 2; s->arr[1][i] != '\0'; i++) {
         if (s->arr[1][i] < 'a' || s->arr[1][i] > 'z')
             return 84;
