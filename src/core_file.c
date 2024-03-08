@@ -13,6 +13,9 @@ void static write_header(header_t *h, S_t *s, char **argv)
     FILE *file;
 
     if (argv[2] != NULL)
+        my_printf("(%s)\n", argv[2]);
+    my_printf("(%s)\n", s->file_name);
+    if (argv[2] != NULL)
         file = fopen(argv[2], "wb");
     else if (argv[2] == NULL)
         file = fopen(s->file_name, "wb");
